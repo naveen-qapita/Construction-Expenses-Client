@@ -49,4 +49,8 @@ export abstract class BaseService<TCreate, TUpdate, TResponse> {
   update(id: string, body: TUpdate): Promise<TResponse> {
     return this.handleRequest(axios.put(`${this.resourceUrl}/${id}`, body));
   }
+
+  delete(id: string): Promise<void> {
+    return this.handleRequest(axios.delete(`${this.resourceUrl}/${id}`));
+  }
 }
